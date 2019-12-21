@@ -19,7 +19,7 @@ namespace BookLibrary.DAL.Repositories
 
         public void Create(Book entity)
         {
-            var sql = "INSERT [dbo].[books] ([bookId], [ISBN], [Title], [Comment], [Quantity], [Pages],[AuthorId],[GenreId]) VALUES(@Id, @ISBN, @Title, @Comment, @Quantity, @Pages, @AuthorId, @GenreId)";
+            var sql = "INSERT [dbo].[books] ([bookId], [ISBN], [Title], [Comment], [Quantity], [Pages],[AuthorId],[GenreId]) VALUES(@BookId, @ISBN, @Title, @Comment, @Quantity, @Pages, @AuthorId, @GenreId)";
 
             entity.BookId = _connection.ExecuteScalar<int>(sql, entity);
         }

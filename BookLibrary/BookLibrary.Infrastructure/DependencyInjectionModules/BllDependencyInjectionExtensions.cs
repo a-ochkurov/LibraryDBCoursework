@@ -9,6 +9,7 @@ namespace BookLibrary.Infrastructure.DependencyInjectionModules
         public static IServiceCollection ResolveBllDependencies(this IServiceCollection services)
         {
             services.AddTransient<IBookService, BookService>();
+            services.AddTransient<IAuthorService, AuthorService>();
 
             return services;
         }

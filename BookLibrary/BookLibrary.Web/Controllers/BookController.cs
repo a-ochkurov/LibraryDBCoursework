@@ -14,7 +14,7 @@ namespace BookLibrary.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult AllBooks()
+        public IActionResult Index()
         {
             var books = _bookService.Get();
 
@@ -24,57 +24,6 @@ namespace BookLibrary.Web.Controllers
             }
 
             return NotFound();
-        }
-
-        [HttpGet]
-        public IActionResult Book(int id)
-        {
-            var book = _bookService.Get(id);
-
-            if (book != null)
-            {
-                return new ObjectResult(book);
-            }
-
-            return NotFound();
-        }
-
-        [HttpPost]
-        public IActionResult Post([FromBody]Book book)
-        {
-            if (book != null)
-            {
-                _bookService.Add(book);
-                return Ok();
-            }
-
-            return BadRequest();
-        }
-
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]Book book)
-        {
-            if (book != null)
-            {
-                book.BookId = id;
-                _bookService.Update(book);
-
-                return Ok();
-            }
-
-            return BadRequest();
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            if (id != 0)
-            {
-                _bookService.Remove(id);
-                return Ok();
-            }
-
-            return BadRequest();
         }
     }
 }
