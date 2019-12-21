@@ -1,9 +1,7 @@
 ﻿namespace BookLibrary.Domain.Models
 {
-    public class Book
+    public class Book : BaseModel
     {
-        public int BookId { get; set; }
-
         public string ISBN { get; set; }
 
         public string Title { get; set; }
