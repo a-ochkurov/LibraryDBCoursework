@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BookLibrary.BLL.Interfaces;
 using BookLibrary.DAL.Interfaces;
 using BookLibrary.Domain.Models;
@@ -35,7 +36,13 @@ namespace BookLibrary.BLL.Services
 
         public void Remove(int id)
         {
-            _authorsRepository.Delete(id);
+            var author = _authorsRepository.Get(id);
+            if (author == null)
+            {
+                throw new InvalidOperationException("Wrong id");
+            }
+
+            _authorsRepository.Delete(author.AuthorId);
         }
 
         public void Update(Author author)
