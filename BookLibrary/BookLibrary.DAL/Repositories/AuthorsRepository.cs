@@ -19,8 +19,8 @@ namespace BookLibrary.DAL.Repositories
 
         public void Create(Author entity)
         {
-            var sql = "INSERT [dbo].[authors] ([AuthorId], [Name], [Surname]) " +
-                "VALUES(@AuthorId, @Name, @Surname)";
+            var sql = "INSERT [dbo].[authors] ([Name], [Surname]) " +
+                "VALUES(@Name, @Surname)";
 
             entity.AuthorId = _connection.ExecuteScalar<int>(sql, entity);
         }
