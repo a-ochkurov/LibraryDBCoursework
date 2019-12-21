@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BookLibrary.DAL\BookLibrary.DAL.csproj" />
     <ProjectReference Include="..\BookLibrary.Domain\BookLibrary.Domain.csproj" />
   </ItemGroup>

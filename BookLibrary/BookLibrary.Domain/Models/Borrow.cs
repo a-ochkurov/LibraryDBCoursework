@@ -2,8 +2,10 @@
 
 namespace BookLibrary.Domain.Models
 {
-    public class Borrow : BaseModel
+    public class Borrow
     {
+        public int BorrowId { get; set; }
+
         public int ReaderId { get; set; }
 
         public int BookId { get; set; }

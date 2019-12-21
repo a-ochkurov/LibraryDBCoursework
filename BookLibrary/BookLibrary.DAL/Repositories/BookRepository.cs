@@ -21,26 +21,26 @@ namespace BookLibrary.DAL.Repositories
         {
             var sql = "INSERT [dbo].[books] ([bookId], [ISBN], [Title], [Comment], [Quantity], [Pages],[AuthorId],[GenreId]) VALUES(@Id, @ISBN, @Title, @Comment, @Quantity, @Pages, @AuthorId, @GenreId)";
 
-            entity.Id = _connection.ExecuteScalar<int>(sql, entity);
+            entity.BookId = _connection.ExecuteScalar<int>(sql, entity);
         }
 
         public void Edit(Book entity)
         {
-            var sql = "UPDATE [dbo].[books] SET [ISBN] = @ISBN, [Title] = @Title, [Comment] = @Comment, [Quantity] = @Quantity [Pages] = @Pages ,[AuthorId] = @AuthorId, [GenreId] = @GenreId  WHERE [BookId]  = @Id";
+            var sql = "UPDATE [dbo].[books] SET [ISBN] = @ISBN, [Title] = @Title, [Comment] = @Comment, [Quantity] = @Quantity [Pages] = @Pages ,[AuthorId] = @AuthorId, [GenreId] = @GenreId  WHERE [BookId]  = @BookId";
 
             _connection.Execute(sql, entity);
         }
 
         public void Delete(int id)
         {
-            var sql = "DELETE FROM Books WHERE Id = @Id";
+            var sql = "DELETE FROM Books WHERE BookId = @Id";
 
             _connection.Execute(sql, new { Id = id });
         }
 
         public Book Get(int id)
         {
-            var sql = "SELECT * FROM books WHERE Id = @Id";
+            var sql = "SELECT * FROM books WHERE BookId = @Id";
             var book = _connection.Query<Book>(sql, new { Id = id }).FirstOrDefault();
 
             return book;
