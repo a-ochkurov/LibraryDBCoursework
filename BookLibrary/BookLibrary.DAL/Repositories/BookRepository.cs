@@ -19,14 +19,16 @@ namespace BookLibrary.DAL.Repositories
 
         public void Create(Book entity)
         {
-            var sql = "INSERT [dbo].[books] ([bookId], [ISBN], [Title], [Comment], [Quantity], [Pages],[AuthorId],[GenreId]) VALUES(@BookId, @ISBN, @Title, @Comment, @Quantity, @Pages, @AuthorId, @GenreId)";
+            var sql = "INSERT [dbo].[books] ([ISBN], [Title], [Comment], [Quantity], [Pages],[AuthorId],[GenreId]) " +
+                "VALUES(@ISBN, @Title, @Comment, @Quantity, @Pages, @AuthorId, @GenreId)";
 
             entity.BookId = _connection.ExecuteScalar<int>(sql, entity);
         }
 
         public void Edit(Book entity)
         {
-            var sql = "UPDATE [dbo].[books] SET [ISBN] = @ISBN, [Title] = @Title, [Comment] = @Comment, [Quantity] = @Quantity [Pages] = @Pages ,[AuthorId] = @AuthorId, [GenreId] = @GenreId  WHERE [BookId]  = @BookId";
+            var sql = "UPDATE [dbo].[books] SET [ISBN] = @ISBN, [Title] = @Title, [Comment] = @Comment, [Quantity] = @Quantity, [Pages] = @Pages ,[AuthorId] = @AuthorId, [GenreId] = @GenreId  " +
+                "WHERE [BookId]  = @BookId";
 
             _connection.Execute(sql, entity);
         }
