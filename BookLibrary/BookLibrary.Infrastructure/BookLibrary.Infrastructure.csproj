@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="DependencyInjectionModules\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BookLibrary.BLL\BookLibrary.BLL.csproj" />
+    <ProjectReference Include="..\BookLibrary.DAL\BookLibrary.DAL.csproj" />
+  </ItemGroup>
+
+</Project>
