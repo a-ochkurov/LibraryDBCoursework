@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using BookLibrary.DAL.DbContext;
+using BookLibrary.DAL.Interfaces;
+using BookLibrary.DAL.Repositories;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BookLibrary.Infrastructure.DependencyInjectionModules
 {
@@ -6,10 +9,8 @@ namespace BookLibrary.Infrastructure.DependencyInjectionModules
     {
         public static IServiceCollection ResolveDalDependencies(this IServiceCollection services, string connectionString)
         {
-            //services.AddScoped<HarperCollinsDbContext>(c => new HarperCollinsDbContext(connectionString));
-            //services.AddTransient<IRepository<CollinsList>, CollinsListRepository>();
-            //services.AddTransient<ICustomerRepository, CustomerRepository>();
-            //services.AddTransient<IBookRepository, BookRepository>();
+            services.AddScoped<LibraryDbContext>(c => new LibraryDbContext(connectionString));
+            services.AddTransient<IBookRepository, BookRepository>();
 
             return services;
         }

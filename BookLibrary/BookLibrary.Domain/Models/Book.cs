@@ -1,6 +1,6 @@
 ﻿namespace BookLibrary.Domain.Models
 {
-    class Book
+    public class Book
     {
         public int BookId { get; set; }
 

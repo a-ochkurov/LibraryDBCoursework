@@ -2,7 +2,7 @@
 
 namespace BookLibrary.Domain.Models
 {
-    class Borrow
+    public class Borrow
     {
         public int BorrowId { get; set; }
 
