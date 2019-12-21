@@ -12,6 +12,9 @@ namespace BookLibrary.Infrastructure.DependencyInjectionModules
             services.AddScoped<LibraryDbContext>(c => new LibraryDbContext(connectionString));
             services.AddTransient<IBookRepository, BookRepository>();
             services.AddTransient<IAuthorsRepository, AuthorsRepository>();
+            services.AddTransient<IGenreRepository, GenreRepository>();
+            services.AddTransient<IReadersRepository, ReadersRepository>();
+            services.AddTransient<IBorrowsRepository, BorrowsRepository>();
 
             return services;
         }
