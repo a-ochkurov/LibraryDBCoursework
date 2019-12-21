@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using BookLibrary.Infrastructure.DependencyInjectionModules;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +21,9 @@ namespace BookLibrary.Web
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.ResolveDalDependencies(connectionString);
+            services.ResolveBllDependencies();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
