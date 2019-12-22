@@ -12,6 +12,6 @@ namespace BookLibrary.Domain.Models
 
         public DateTime TakenDate { get; set; }
 
-        public DateTime BroughtDate { get; set; }
+        public DateTime? BroughtDate { get; set; }
     }
 }

@@ -1,0 +1,51 @@
+﻿@model Borrow
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BorrowId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BorrowId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ReaderId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ReaderId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BookId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BookId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TakenDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TakenDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BroughtDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BroughtDate)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="BorrowId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
